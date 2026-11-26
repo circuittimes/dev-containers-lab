@@ -1,0 +1,50 @@
+Output of lab/safety_tests.sh, run on November 25, 2026 as the lab user. All six tests in one run. Exit status of the run: 0.
+
+=== safety test: preexisting
+lab run exit status: 1
+LAB FAILED: a container for the feat-apt folder already exists, nothing was started or removed
+tests started before the lab stopped: 0
+other process's container still present: 1
+RESULT: pass
+
+=== safety test: concurrent
+other container created while the lab was still running: yes
+lab run exit status: 0
+unrelated container created: yes
+lab containers found: 5
+lab containers left: 0
+unrelated container still present: 1
+project files left: from-container.txt hello.py note.txt
+other process's container still present: 1
+RESULT: pass
+
+=== safety test: adopted
+lab run exit status: 1
+LAB FAILED: the CLI returned a container for ports that did not pass this run's identity checks, nothing was removed for it
+containers of this run left: 0
+other process's container still present: 1
+RESULT: pass
+
+=== safety test: broken
+lab run exit status: 1
+LAB FAILED: devcontainer up failed for built
+last test started: === T8 build from a Dockerfile
+containers of this run left: 0
+RESULT: pass
+
+=== safety test: killed
+kill sent after Docker first listed the ports container, while devcontainer up was still running: yes
+lab run exit status: 130
+LAB STOPPED: interrupted while devcontainer up was running for the ports folder
+POSSIBLE LEFTOVER: the run was interrupted while devcontainer up was running for the ports folder.
+unverified containers the lab left for the ports folder, as designed: 1
+containers left for the folders the lab had finished starting: 0
+other process's container still present: 1
+this test then removed the unverified container itself, and checked it is gone: yes
+RESULT: pass
+
+=== safety test: removal
+lab run exit status: 3
+CLEANUP FAILED reported, containers named: 6
+this test then removed exactly the named containers, and checked they are gone: yes
+RESULT: pass

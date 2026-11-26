@@ -1,0 +1,80 @@
+
+=== T0 versions
+0.90.0
+Docker version 29.10.0, build fdd4b8e
+Linux 6.18.44
+host user: lab uid 1001
+
+=== T1 up from an image
+outcome: success | remoteUser: vscode | remoteWorkspaceFolder: /workspaces/demo
+seconds: 2
+
+=== T2 inside the container
+user: vscode uid 1001
+folder: /workspaces/demo
+files: hello.py
+DEMO_MODE: inside-container
+post-create file: created
+NAME="Alpine Linux"
+git version 2.56.1
+
+=== T3 files are shared both ways
+edited on the host
+written in the container
+owner uid on host: 1001
+
+=== T4 forwardPorts and the CLI
+docker port output: []
+
+=== T5 appPort and the CLI
+docker port output: [8000/tcp -> 127.0.0.1:8000]
+
+=== T6 lifecycle order, first create
+onCreateCommand
+updateContentCommand
+postCreateCommand
+postStartCommand
+postAttachCommand
+
+=== T7 lifecycle order, after stop and second up
+onCreateCommand
+updateContentCommand
+postCreateCommand
+postStartCommand
+postAttachCommand
+postStartCommand
+postAttachCommand
+
+=== T8 build from a Dockerfile
+outcome: success | remoteUser: vscode | remoteWorkspaceFolder: /workspaces/built
+seconds: 1
+baked into the image at build time
+
+=== T9 local Feature
+outcome: success | remoteUser: vscode | remoteWorkspaceFolder: /workspaces/feat-local
+seconds: 2
+hello from a Feature
+lockfile written: devcontainer-lock.json
+
+=== T10 apt-based Feature on an Alpine image
+./install.sh: line 101: apt-get: command not found
+ERROR: Feature "GitHub CLI" (ghcr.io/devcontainers/features/github-cli) failed to install! Look 
+outcome: error
+
+=== T11 plain docker run for comparison
+user: root
+folder: /src
+DEMO_MODE: []
+cannot access '/tmp/post-create.txt': No such file or directory
+
+=== T12 labels the CLI puts on the container
+devcontainer.config_file
+devcontainer.local_folder
+devcontainer.metadata
+
+=== T13 remove only this run's containers, keep the files
+unrelated container created: yes
+lab containers found: 5
+lab containers left: 0
+unrelated container still present: 1
+project files left: from-container.txt hello.py note.txt
