@@ -1,0 +1,5 @@
+{
+  "name": "feature-on-alpine",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "features": { "ghcr.io/devcontainers/features/github-cli:1": {} }
+}
