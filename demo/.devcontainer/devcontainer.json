@@ -1,0 +1,8 @@
+{
+  "name": "circuit-times-demo",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "containerEnv": { "DEMO_MODE": "inside-container" },
+  "forwardPorts": [8000],
+  "postCreateCommand": "echo created > /tmp/post-create.txt",
+  "remoteUser": "vscode"
+}
