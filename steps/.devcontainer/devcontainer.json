@@ -1,0 +1,10 @@
+{
+  "name": "lifecycle-order",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "initializeCommand": "echo initializeCommand ran on the host",
+  "onCreateCommand": "echo onCreateCommand >> /tmp/order.txt",
+  "updateContentCommand": "echo updateContentCommand >> /tmp/order.txt",
+  "postCreateCommand": "echo postCreateCommand >> /tmp/order.txt",
+  "postStartCommand": "echo postStartCommand >> /tmp/order.txt",
+  "postAttachCommand": "echo postAttachCommand >> /tmp/order.txt"
+}
