@@ -1,0 +1,5 @@
+{
+  "name": "local-feature",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "features": { "./hello-feature": { "greeting": "hello from a Feature" } }
+}
