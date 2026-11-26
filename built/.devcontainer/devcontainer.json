@@ -1,0 +1,4 @@
+{
+  "name": "built-from-dockerfile",
+  "build": { "dockerfile": "Dockerfile" }
+}
