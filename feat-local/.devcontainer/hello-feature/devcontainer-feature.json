@@ -1,0 +1,6 @@
+{
+  "id": "hello-feature",
+  "version": "1.0.0",
+  "name": "Hello Feature",
+  "options": { "greeting": { "type": "string", "default": "hello" } }
+}
