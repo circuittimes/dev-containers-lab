@@ -1,0 +1,5 @@
+{
+  "name": "published-port",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "appPort": [8000]
+}
